@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenSight Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <div class="sidebar-logo-text">
-          <img class="sidebar-logo" src="assets/Logo.svg" alt="logo">
-          <h2 class="logo-text">GreenSight</h2>
+    <body>
+        
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="logo">
+                <img src="assets/Logo.svg" alt="GreenSight Logo" class="logo-img">
+                <span class="logo-text">GreenSight</span>
+            </div>
+            <div class="user">Welcome, Admin</div>
         </div>
-        <button id="toggle-btn" class="toggle-btn">&#9776;</button>
-      </div>
 
-      <ul class="menu">
-        <li><a href="#" class="active"><i class="icon">&#128200;</i><span class="text">Dashboard</span></a></li>
-        <li><a href="pages/map.html"><i class="icon">&#128506;</i><span class="text">Map View</span></a></li>
-        <li><a href="pages/bin-details.html"><i class="icon">&#128465;</i><span class="text">Bin Details</span></a></li>
-        <li><a href="pages/alerts.html"><i class="icon">&#9888;</i><span class="text">Alerts</span></a></li>
-        <li><a href="pages/reports.html"><i class="icon">&#128202;</i><span class="text">Reports</span></a></li>
-        <li><a href="pages/settings.html"><i class="icon">&#9881;</i><span class="text">Settings</span></a></li>
-        <li><a href="pages/help.html"><i class="icon">&#10067;</i><span class="text">Help</span></a></li>
-        <li><a href="pages/about.html"><i class="icon">&#8505;</i><span class="text">About</span></a></li>
-      </ul>
-    </aside>
+        <!-- Layout -->
+        <div class="layout">
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
+                <a href="#" data-page="map">🗺️ Map View</a>
+                <a href="#" data-page="bin-details">🗑️ Bin Details</a>
+                <a href="#" data-page="alerts">⚠️ Alerts</a>
+                <a href="#" data-page="reports">📑 Reports</a>
+                <a href="#" data-page="settings">⚙️ Settings</a>
+                <a href="#" data-page="help">❓ Help</a>
+                <a href="#" data-page="about">ℹ️ About</a>
+            </div>
 
+            <!-- Main Content -->
+            <div class="main-content" id="main-content">
+                <h2>Dashboard</h2>
+                <p>Welcome to GreenSight! Here you’ll see an overview of bin statuses and metrics.</p>
+            </div>
+        </div>
 
-    
-</body>
+        <script src="js/script.js"></script>
+
+    </body>
 </html>
