@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GreenSight Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Leaflet CSS + JS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
     <body>
         
@@ -24,7 +31,7 @@
             <div class="sidebar">
                 <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
                 <a href="#" data-page="map">🗺️ Map View</a>
-                <a href="#" data-page="bin-details">🗑️ Bin Details</a>
+                <a href="#" data-page="binDetails">🗑️ Bin Details</a>
                 <a href="#" data-page="alerts">⚠️ Alerts</a>
                 <a href="#" data-page="reports">📑 Reports</a>
                 <a href="#" data-page="settings">⚙️ Settings</a>
@@ -33,13 +40,10 @@
             </div>
 
             <!-- Main Content -->
-            <div class="main-content" id="main-content">
-                <h2>Dashboard</h2>
-                <p>Welcome to GreenSight! Here you’ll see an overview of bin statuses and metrics.</p>
-            </div>
+            <div class="main-content" id="main-content"></div>
         </div>
 
-        <script src="js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
 
     </body>
 </html>

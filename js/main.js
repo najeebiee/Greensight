@@ -1,52 +1,61 @@
-// Sidebar navigation logic
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-    const mainContent = document.getElementById('main-content');
+// Sidebar navigation logic (modular page content)
+import { dashboard, initDashboardCharts } from './dashboard.js';
+import { map, initMap } from './map.js';
+import { binDetails } from './binDetails.js';
+import { alerts } from './alerts.js';
+import { reports } from './reports.js';
+import { settings } from './settings.js';
+import { help } from './help.js';
+import { about } from './about.js';
 
-    const pages = {
-      dashboard: `
-        <h2>Dashboard</h2>
-        <p>Welcome to GreenSight! Here you’ll see an overview of bin statuses and metrics.</p>
-      `,
-      map: `
-        <h2>Map View</h2>
-        <p>Interactive map showing smart bin locations.</p>
-      `,
-      "bin-details": `
-        <h2>Bin Details</h2>
-        <p>Sensor data, historical charts, and maintenance actions.</p>
-      `,
-      alerts: `
-        <h2>Alerts</h2>
-        <p>Critical alerts and resolution tracking.</p>
-      `,
-      reports: `
-        <h2>Reports</h2>
-        <p>Exportable summaries and analytics.</p>
-      `,
-      settings: `
-        <h2>Settings</h2>
-        <p>Configure thresholds and preferences.</p>
-      `,
-      help: `
-        <h2>Help / FAQ</h2>
-        <p>Find guides and troubleshooting tips.</p>
-      `,
-      about: `
-        <h2>About</h2>
-        <p>GreenSight is an IoT smart bin monitoring system designed for sustainability.</p>
-      `
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  const mainContent = document.getElementById('main-content');
 
-    sidebarLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
+  const pages = {
+    dashboard,
+    map,
+    binDetails,
+    alerts,
+    reports,
+    settings,
+    help,
+    about
+  };
 
-        // remove active class from all
-        sidebarLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+  // Show Dashboard by default on load
+  mainContent.innerHTML = pages['dashboard'];
+  if (typeof initDashboardCharts === 'function') {
+    setTimeout(() => {
+      initDashboardCharts();
+    }, 0);
+  }
+  // Sidebar active state
+  sidebarLinks.forEach(l => l.classList.remove('active'));
+  const defaultLink = document.querySelector('.sidebar a[data-page="dashboard"]');
+  if (defaultLink) defaultLink.classList.add('active');
 
-        // load page content
-        const page = link.getAttribute('data-page');
-        mainContent.innerHTML = pages[page];
-      });
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      // remove active class from all
+      sidebarLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      // load page content
+      const page = link.getAttribute('data-page');
+      mainContent.innerHTML = pages[page];
+      // If Map page, initialize the map
+      if (page === 'map') {
+        setTimeout(() => {
+          initMap();
+        }, 0);
+      }
+      // If Dashboard page, initialize dashboard charts
+      if (page === 'dashboard') {
+        setTimeout(() => {
+          initDashboardCharts();
+        }, 0);
+      }
     });
+  });
+});
