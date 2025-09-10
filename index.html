@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenSight Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Leaflet CSS + JS -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenSight Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Leaflet CSS + JS -->
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <img
+          src="assets/Logo-white.svg"
+          alt="GreenSight Logo"
+          class="logo-img"
+        />
+        <span class="logo-text">GreenSight</span>
+      </div>
+      <div class="user">Welcome, Admin</div>
+    </div>
 
-</head>
-    <body>
-        
-        <!-- Navbar -->
-        <div class="navbar">
-            <div class="logo">
-                <img src="assets/Logo.svg" alt="GreenSight Logo" class="logo-img">
-                <span class="logo-text">GreenSight</span>
-            </div>
-            <div class="user">Welcome, Admin</div>
-        </div>
+    <!-- Layout -->
+    <div class="layout">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
+        <a href="#" data-page="map">🗺️ Map View</a>
+        <a href="#" data-page="binDetails">🗑️ Bin Details</a>
+        <a href="#" data-page="alerts">⚠️ Alerts</a>
+        <a href="#" data-page="reports">📑 Reports</a>
+        <a href="#" data-page="settings">⚙️ Settings</a>
+        <a href="#" data-page="help">❓ Help</a>
+        <a href="#" data-page="about">ℹ️ About</a>
+      </div>
 
-        <!-- Layout -->
-        <div class="layout">
-            
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
-                <a href="#" data-page="map">🗺️ Map View</a>
-                <a href="#" data-page="binDetails">🗑️ Bin Details</a>
-                <a href="#" data-page="alerts">⚠️ Alerts</a>
-                <a href="#" data-page="reports">📑 Reports</a>
-                <a href="#" data-page="settings">⚙️ Settings</a>
-                <a href="#" data-page="help">❓ Help</a>
-                <a href="#" data-page="about">ℹ️ About</a>
-            </div>
+      <!-- Main Content -->
+      <div class="main-content" id="main-content"></div>
+    </div>
 
-            <!-- Main Content -->
-            <div class="main-content" id="main-content"></div>
-        </div>
-
-        <script type="module" src="js/main.js"></script>
-
-    </body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>
-
