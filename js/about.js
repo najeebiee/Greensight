@@ -20,14 +20,16 @@ export const about = `
     </div>
 
     <!-- CTA Section -->
-    <div class="cta-section">
-      <h3>Start your free trial</h3>
-      <p>Join cities and organizations already making an impact with GreenSight.</p>
+    <section class="cta-section">
+      <div class="cta-content">
+        <h3>Start your 30-day free trial</h3>
+        <p>Join over 4,000+ startups already growing with Untitled.</p>
+      </div>
       <div class="cta-buttons">
         <button class="btn-outline">Chat to us</button>
         <button class="btn-primary">Get started</button>
       </div>
-    </div>
+    </section>
 
     <!-- Footer-like Section -->
     <footer class="about-footer">
