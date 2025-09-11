@@ -12,7 +12,7 @@
   /* Neutral Palette */
   --white: #ffffff;
   --light-bg: #fafafa;
-  --light-gray: #f1f0f0;
+  --light-gray: #f0f0f0;
   --gray: #bdbdbd;
   --medium-gray: #757575;
   --dark-gray: #424242;
@@ -138,62 +138,174 @@ body {
 /* --- Top Stat Cards --- */
 .stats-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Slightly larger min-width */
+  gap: 1.5rem; /* Increased gap for better spacing */
 }
+
 .card {
   background: var(--white);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px; /* Softer, more modern radius */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.card h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--charcoal);
-}
-.card .value {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
-}
-.trend.up { color: var(--eco-green); }
-.trend.down { color: #e53935; }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem; /* Adjusted padding */
+  background: var(--eco-green);
+  color: var(--white);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 0.8rem; /* Fine-tuned font size */
+  font-weight: 700;
+  letter-spacing: 0.07em; /* Subtle letter spacing for uppercase text */
+  text-transform: uppercase;
+}
+
+.card-header .fas {
+  font-size: 1.5rem;
+  opacity: 0.8; /* Slightly transparent icon for a softer look */
+}
+
+.card-content {
+  padding: 1.25rem; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Increased gap between elements */
+}
+
+/* Trend Indicator Styling (More polished) */
+.trend-indicator {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px; /* Pill-shaped indicator */
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.trend-indicator.up {
+  background-color: #E6F4EA; /* Lighter, more modern green */
+  color: #1D8A4D;
+}
+
+.trend-indicator.down {
+  background-color: #FBE9E9; /* Lighter, more modern red */
+  color: #BF2D2D;
+}
+
+/* Value Row Styling (Better alignment and hierarchy) */
+.value-row {
+  display: flex;
+  align-items: baseline; /* Aligns the bottom of the big number with the text */
+  justify-content: space-between;
+}
+
+/* Grouping value and arrow together */
+.value-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.value-row .value {
+  font-size: 2.25rem; /* Larger value for more impact */
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1;
+}
+
+.value-row .fas {
+  font-size: 1rem;
+}
+
+.value-row .fas.fa-arrow-up {
+  color: var(--eco-green);
+}
+
+.value-row .fas.fa-arrow-down {
+  color: #e53935;
+}
+
+.last-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6c757d; /* Softer gray color */
+  align-self: flex-end; /* Ensures it aligns to the bottom */
+}
 /* --- Charts Row --- */
 .charts-row {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
 }
+
 .chart-card {
   background: var(--white);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.chart-subtitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.chart-container {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
 }
 
 /* --- Bottom Row --- */
 .bottom-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
+
 .widget-card {
   background: var(--white);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+.widget-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .activity-feed {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-.activity-feed li {
   font-size: 0.9rem;
-  padding: 0.3rem 0;
-  border-bottom: 1px solid var(--soft-gray);
+}
+
+.activity-feed li {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-feed li:last-child {
+  border-bottom: none;
 }
 
 /* ----- Map Page Styles ----- */
@@ -278,13 +390,6 @@ body {
   color: var(--eco-green);
 }
 
-.charts-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
 .chart-card.large {
   grid-column: span 1;
 }
@@ -317,6 +422,7 @@ body {
   gap: 2rem;
   align-items: center;
   margin-bottom: 3rem;
+  padding: 2rem;
 }
 
 .about-text h4 {
@@ -351,31 +457,41 @@ body {
 }
 
 .cta-section {
-  text-align: center;
+  display: flex;              /* Use flexbox for side-by-side layout */
+  justify-content: space-between; /* Pushes text to the left and buttons to the right */
+  align-items: center;        /* Vertically aligns the content */
   padding: 2rem;
-  background: var(--soft-gray);
+  background: #F9FAFB;      /* A very light gray, similar to the image */
   border-radius: 12px;
 }
 
-.cta-section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+/* Container for the text content on the left */
+.cta-content {
+  text-align: left; /* Ensure text is left-aligned */
 }
 
-.cta-section p {
-  margin-bottom: 1.5rem;
-  color: var(--charcoal);
+.cta-content h3 {
+  font-size: 1.875rem; /* Larger font size */
+  font-weight: 600;
+  color: #101828;      /* Dark text color */
+  margin: 0 0 1rem 0; /* Remove default margins and add a small one at the bottom */
 }
 
+.cta-content p {
+  font-size: 1.125rem;
+  color: #475467;      /* Lighter gray for the paragraph */
+  margin: 0;
+}
+
+/* Button container on the right */
 .cta-buttons {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem; /* Space between the buttons */
 }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--eco-green);
+  border: 1px solid var(--eco-green);
   padding: 0.5rem 1.2rem;
   border-radius: 8px;
   cursor: pointer;
@@ -396,7 +512,7 @@ body {
   grid-template-columns: 1fr 3fr;
   gap: 2rem;
   margin-top: 3rem;
-  padding: 2rem 0;
+  padding: 2rem;
   border-top: 1px solid var(--light-gray);
 }
 
