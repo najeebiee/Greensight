@@ -53,8 +53,8 @@
 /* --- Global Styles --- */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--light-gray); /* use the variable you defined */
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa; /* Softer background color */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -125,6 +125,8 @@ body {
   padding: 1.5rem;
   overflow-y: auto;
 }
+
+
 
 
 /* ----- Dashboard Page Styles ----- */
@@ -284,13 +286,35 @@ body {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
 .widget-card h3 {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-weight: 600;
+  color: #343a40;
 }
 
+/* Collection Efficiency Gauge Text */
+.gauge-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Helps center the chart vertically */
+}
+
+.gauge-percentage {
+  position: absolute;
+  top: 60%;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--eco-green);
+}
+
+/* Recent Activity Feed */
 .activity-feed {
   list-style: none;
   padding: 0;
@@ -299,14 +323,56 @@ body {
 }
 
 .activity-feed li {
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
   border-bottom: 1px solid #f0f0f0;
 }
 
 .activity-feed li:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
+
+/* High-Priority Bins List */
+.priority-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.priority-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.priority-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.priority-list li strong {
+  color: var(--charcoal);
+}
+
+.priority-list li span {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  color: white;
+  white-space: nowrap;
+}
+
+.priority-list .critical span { background-color: #e53935; } /* Red */
+.priority-list .warning span { background-color: #ff9800; } /* Orange */
+.priority-list .normal span { background-color: #03a9f4; } /* Blue */
 
 /* ----- Map Page Styles ----- */
 .map-container {

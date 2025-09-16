@@ -89,25 +89,37 @@ export const dashboard = `
     <!-- 🔹 Bottom Row -->
     <div class="bottom-row">
       <div class="widget-card">
-        <h3>Monthly Earning</h3>
-        <p class="value">$6451</p>
-        <canvas id="earningChart"></canvas>
+        <h3>Collection Efficiency</h3>
+        <div class="gauge-container">
+          <div class="gauge-percentage">92%</div>
+          <canvas id="efficiencyChart"></canvas>
+        </div>
       </div>
       <div class="widget-card">
         <h3>Recent Activity</h3>
         <ul class="activity-feed">
-          <li><strong>12 Oct:</strong> Responded to "Volunteer Activities"</li>
-          <li><strong>13 Oct:</strong> Uploaded Images</li>
-          <li><strong>14 Oct:</strong> Uploaded File</li>
+          <li><strong>Bin #102</strong> in Downtown reported full.</li>
+          <li><strong>Maintenance</strong> completed on Bin #55.</li>
+          <li><strong>Alert cleared</strong> for Bin #21 in Suburbs.</li>
+          <li><strong>New bin added:</strong> #2451 in Industrial.</li>
         </ul>
       </div>
-      <div class="widget-card weather">
-        <h3>New York</h3>
-        <p>🌧️ 28°C Heavy Rain</p>
-      </div>
-      <div class="widget-card weather">
-        <h3>California</h3>
-        <p>☀️ 32°C Partly Cloudy</p>
+      <div class="widget-card high-priority">
+        <h3>High-Priority Bins</h3>
+        <ul class="priority-list">
+          <li class="critical">
+            <strong>Bin #142 (Market St)</strong>
+            <span>98% Full</span>
+          </li>
+          <li class="warning">
+            <strong>Bin #88 (Central Park)</strong>
+            <span>Temp Alert: 55°C</span>
+          </li>
+          <li class="normal">
+            <strong>Bin #201 (Uptown)</strong>
+            <span>Needs Maintenance</span>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -172,6 +184,36 @@ export function initDashboardCharts() {
                 beginAtZero: true,
                 max: 100 // Set max to 100 for percentage
             }
+        }
+      }
+    });
+  }
+
+  // 3. Collection Efficiency (Donut Chart)
+  const ctxEfficiency = document.getElementById('efficiencyChart');
+  if (ctxEfficiency) {
+    new Chart(ctxEfficiency, {
+      type: 'doughnut',
+      data: {
+        labels: ['Efficient', 'Inefficient'],
+        datasets: [{
+          data: [92, 8], // Represents 92% efficiency
+          backgroundColor: [
+            'var(--eco-green)',
+            '#f0f0f0' // Light gray for the unused portion
+          ],
+          borderColor: 'rgba(255, 255, 255, 0)',
+          circumference: 180, // Makes it a half-circle gauge
+          rotation: -90,      // Starts the chart at the bottom
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false }
         }
       }
     });
