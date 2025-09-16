@@ -1,7 +1,8 @@
 export const settings = `
-  <h2>Settings</h2>
-  <p>Manage your account, notifications, preferences, and system configurations.</p>
-
+  <div class="page-header-settings">  
+    <h1>Settings</h1>
+    <p>Manage your account, notifications, preferences, and system configurations.</p>
+  </div>
   <!-- General Settings -->
   <section class="settings-section">
     <h3>General Settings</h3>

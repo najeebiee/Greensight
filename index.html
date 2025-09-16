@@ -4,54 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GreenSight Dashboard</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Leaflet CSS + JS -->
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Leaflet CSS for Maps -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Navbar -->
     <div class="navbar">
-      <div class="logo">
-        <img
-          src="assets/Logo-white.svg"
-          alt="GreenSight Logo"
-          class="logo-img"
-        />
-        <span class="logo-text">GreenSight</span>
+      <!-- Page title will be updated dynamically by JS -->
+      <div class="navbar-left">
+        <h1 id="page-title">Welcome</h1>
       </div>
-      <div class="user">Welcome, Admin</div>
+
+      <div class="navbar-right">
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search for bins, locations..." />
+        </div>
+        <div class="navbar-actions">
+          <button class="icon-btn">
+            <i class="fas fa-bell"></i>
+          </button>
+          <div class="user-profile-nav">
+            <img
+              src="https://placehold.co/40x40/2e7d32/ffffff?text=A"
+              alt="Admin Avatar"
+              class="user-avatar-nav"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Layout -->
     <div class="layout">
       <!-- Sidebar -->
       <div class="sidebar">
-        <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
-        <a href="#" data-page="map">🗺️ Map View</a>
-        <a href="#" data-page="binDetails">🗑️ Bin Details</a>
-        <a href="#" data-page="alerts">⚠️ Alerts</a>
-        <a href="#" data-page="reports">📑 Reports</a>
-        <a href="#" data-page="settings">⚙️ Settings</a>
-        <a href="#" data-page="help">❓ Help</a>
-        <a href="#" data-page="about">ℹ️ About</a>
+        <!-- Sidebar Header with Logo -->
+        <div class="sidebar-header">
+          <img
+            src="assets/Logo-green.svg"
+            alt="GreenSight Logo"
+            class="sidebar-logo-img"
+          />
+          <span class="sidebar-logo-text">GreenSight</span>
+        </div>
+
+        <!-- Main Navigation Links -->
+        <nav class="sidebar-nav">
+          <a href="#" class="active" data-page="dashboard"
+            ><i class="fas fa-chart-bar"></i> Dashboard</a
+          >
+          <a href="#" data-page="map"
+            ><i class="fas fa-map-marked-alt"></i> Map View</a
+          >
+          <a href="#" data-page="binDetails"
+            ><i class="fas fa-trash-alt"></i> Bin Details</a
+          >
+          <a href="#" data-page="alerts"
+            ><i class="fas fa-exclamation-triangle"></i> Alerts</a
+          >
+          <a href="#" data-page="reports"
+            ><i class="fas fa-file-alt"></i> Reports</a
+          >
+          <a href="#" data-page="settings"
+            ><i class="fas fa-cog"></i> Settings</a
+          >
+        </nav>
+
+        <!-- Sidebar Footer with User Profile and Other Links -->
+        <div class="sidebar-footer">
+          <a href="#" data-page="help"
+            ><i class="fas fa-question-circle"></i> Help</a
+          >
+          <a href="#" data-page="about"
+            ><i class="fas fa-info-circle"></i> About</a
+          >
+          <div class="user-profile">
+            <img
+              src="https://placehold.co/40x40/2e7d32/ffffff?text=A"
+              alt="Admin Avatar"
+              class="user-avatar"
+            />
+            <div class="user-info">
+              <span class="user-name">Admin</span>
+              <span class="user-role">System Operator</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="main-content" id="main-content"></div>
+      <!-- Main Content Area -->
+      <main class="main-content" id="main-content"></main>
     </div>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Main Application Script -->
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
